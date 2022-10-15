@@ -53,11 +53,14 @@ class List {
 	directionDescendent(): String { "descendent" };
 
     main():Object {
+		currentAction <- 0;
         while looping loop {
-            intStr <- in_string();
-            if intStr == "help" then {
+            inStr <- in_string();
+            if inStr == "help" then {
                 out_string("Available commands: load, print, merge, filterBy, sortBy");
-            } else if intStr 
+            } else if inStr == "load" then {
+				currentAction <- 1;
+				
         } pool
     };
 };class StringTokenizer {
@@ -79,9 +82,6 @@ class List {
     }};
 
     nextToken(): String {{
-        if pos >= len then
-            fail "no more tokens";
-        end if;
         let start: Int <- pos;
         while pos < len and inputStr[pos] ~= ' ' loop
             pos <- pos + 1;
@@ -90,25 +90,73 @@ class List {
         pos <- pos + 1;
         token;
     }};
-	-- nextToken(): String {
-	-- 	let token: String <- "",
-	-- 		localPos: Int <- pos
-	-- 	in {
-	-- 		while localPos < len loop {
-	-- 			if str.substr(pos, 1) = delim then {
-	-- 				pos <- pos + 1;
-	-- 				localPos <- len;
-	-- 			} else {
-	-- 				token <- token.concat(str.substr(pos, 1));
-	-- 				pos <- pos + 1;
-	-- 				localPos <- pos;
-	-- 			} fi;
-	-- 		} pool;
+};(*******************************
+ *** Classes Product-related ***
+ *******************************)
+class Product {
+    name : String;
+    model : String;
+    price : Int;
 
-	-- 		token;
-	-- 	}
-	-- };
-};(* Think of these as abstract classes *)
+    init(n : String, m: String, p : Int):SELF_TYPE {{
+        name <- n;
+        model <- m;
+        price <- p;
+        self;
+    }};
+
+    getprice():Int{ price * 119 / 100 };
+
+    toString():String {
+        type_name().concat("(").concat(name).concat(",").concat(model).concat(")")
+    };
+};
+
+class Edible inherits Product {
+    -- VAT tax is lower for foods
+    getprice():Int { price * 109 / 100 };
+};
+
+class Soda inherits Edible {
+    -- sugar tax is 20 bani
+    getprice():Int {price * 109 / 100 + 20};
+};
+
+class Coffee inherits Edible {
+    -- this is technically poison for ants
+    getprice():Int {price * 119 / 100};
+};
+
+class Laptop inherits Product {
+    -- operating system cost included
+    getprice():Int {price * 119 / 100 + 499};
+};
+
+class Router inherits Product {};
+
+(****************************
+ *** Classes Rank-related ***
+ ****************************)
+class Rank {
+    name : String;
+
+    init(n : String):String {
+        name <- n
+    };
+
+    toString():String {
+        -- Hint: what are the default methods of Object?
+        type_name().concat("(").concat(name).concat(")")
+    };
+};
+
+class Private inherits Rank {};
+
+class Corporal inherits Private {};
+
+class Sergent inherits Corporal {};
+
+class Officer inherits Sergent {};(* Think of these as abstract classes *)
 class Comparator {
     compareTo(o1 : Object, o2 : Object):Int {0};
 };
