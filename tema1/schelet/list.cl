@@ -3,11 +3,19 @@ class List {
     first: Object;
 	elems: List;
     
-    init (first: Object, elems: List): SELF_TYPE {
-        first = first;
-        elems = elems;
-        self
-    }
+	init(o: Object, l: List): SELF_TYPE {{
+		first <- o;
+		elems <- l;
+		self;
+	}};
+
+    first(): Object {{
+        first;
+    }};
+
+    elems(): List {{
+        elems;
+    }};
 
     add(elem : Object): List {
         if isvoid first then
@@ -41,27 +49,29 @@ class List {
 		elemX: IO => "IO()";
 		elemX: Object => "Object()";
 		elemX: Product => elemX.toString();
-		ElemX: Rank => ElemX.toString();
+		elemX: Rank => elemX.toString();
 		esac
+    };
 
     toString(): String {
-        stringElems: String <- "";
-        oldFirst: Object <- first;
-        oldElems: List <- elems;
-        if isvoid first then
-            stringElems <- ""
-        else
-            stringElems <- first.toString();
-            while not isvoid elems loop
-                first <- elems.first;
-                elems <- elems.elems;
-                stringElems <- stringElems.concat(first.toString()).concat(", ");
-
-        fi;
-        first <- oldFirst;
-        elems <- oldElems;
-        -- stringElems <- stringElems.substring(0, stringElems.length() - 2);
-        "[ ".concat(stringElems).concat(" ]\n")
+        let stringElems: String <- "",
+            firstLocal: Object <- first,
+            elemsLocal: List <- elems
+        in {
+            if isvoid first then
+                stringElems <- ""
+            else {
+                stringElems <- firstLocal.toString();
+                while not isvoid elemsLocal loop {
+                    firstLocal <- elemsLocal.first();
+                    elemsLocal <- elemsLocal.elems();
+                    stringElems <- stringElems.concat(firstLocal.toString()).concat(", ");
+                } pool;
+            } fi;
+            -- stringElems <- stringElems.substring(0, stringElems.length() - 2);
+            "[ ".concat(stringElems).concat(" ]\n");
+            stringElems;
+        }
     };
 
     merge(other : List): SELF_TYPE {

@@ -33,62 +33,63 @@ class Main inherits IO{
 	getListElement(inStr : String) : Object {
 		let tokenizer: StringTokenizer <- new StringTokenizer.init(inStr),
 			token: String <- tokenizer.nextToken()
-		in {
+		in
 			if token = new Soda.type_name() then
 				let name: String <- tokenizer.nextToken(),
 					model: String <- tokenizer.nextToken(),
 					price: String <- tokenizer.nextToken()
 				in {
-					new Soda.init(name, model, price)
+					new Soda.init(name, model, price);
 				}
 			else if token = new Coffee.type_name() then
 				let name: String <- tokenizer.nextToken(),
 					model: String <- tokenizer.nextToken(),
 					price: String <- tokenizer.nextToken()
 				in {
-					new Coffee.init(name, model, price)
+					new Coffee.init(name, model, price);
 				}
 			else if token = new Laptop.type_name() then
 				let name: String <- tokenizer.nextToken(),
 					model: String <- tokenizer.nextToken(),
 					price: String <- tokenizer.nextToken()
 				in {
-					new Laptop.init(name, model, price)
+					new Laptop.init(name, model, price);
 				}
 			else if token = new Router.type_name() then
 				let name: String <- tokenizer.nextToken(),
 					model: String <- tokenizer.nextToken(),
 					price: String <- tokenizer.nextToken()
 				in {
-					new Router.init(name, model, price)
+					new Router.init(name, model, price);
 				}
 			else if token = new Private.type_name() then
 				let name: String <- tokenizer.nextToken()
 				in {
-					new Private.init(name)
+					new Private.init(name);
 				}
 			else if token = new Corporal.type_name() then
 				let name: String <- tokenizer.nextToken()
 				in {
-					new Corporal.init(name)				
+					new Corporal.init(name);			
 				}
 			else if token = new Sergent.type_name() then
 				let name: String <- tokenizer.nextToken()
 				in {
-					new Sergent.init(name)
+					new Sergent.init(name);
 				}
 			else if token = new Officer.type_name() then
 				let name: String <- tokenizer.nextToken()
 				in {
-					new Officer.init(name)
+					new Officer.init(name);
 				}
 			else
 				abort()
-		}
+			fi fi fi fi fi fi fi fi;
+	}
 
-    main():Object {
-		currentAction <- 0;
-		let inStr: String <- "",
+    main(): Object {
+		let currentAction <- 0,
+		inStr: String <- ""
 		in {
 			while looping loop {
 				inStr <- in_string();
