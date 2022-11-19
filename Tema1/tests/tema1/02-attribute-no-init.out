@@ -1,0 +1,23 @@
+class : CLASS
+A : TYPE
+{ : LBRACE
+x : ID
+: : COLON
+SELF_TYPE : TYPE
+; : SEMI
+} : RBRACE
+; : SEMI
+class : CLASS
+B : TYPE
+inherits : INHERITS
+A : TYPE
+{ : LBRACE
+y : ID
+: : COLON
+Int : TYPE
+; : SEMI
+} : RBRACE
+; : SEMI
+<EOF> : EOF
+"02-attribute-no-init.cl", line 1:1, Syntax error: mismatched input 'class' expecting <EOF>
+Compilation halted

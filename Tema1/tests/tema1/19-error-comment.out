@@ -1,0 +1,12 @@
+class : CLASS
+A : TYPE
+{ : LBRACE
+Unmatched *) : ERROR
+x : ID
+: : COLON
+Int : TYPE
+; : SEMI
+EOF in comment : ERROR
+<EOF> : EOF
+"19-error-comment.cl", line 1:1, Syntax error: mismatched input 'class' expecting <EOF>
+Compilation halted

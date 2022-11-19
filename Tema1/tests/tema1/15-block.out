@@ -1,0 +1,29 @@
+class : CLASS
+A : TYPE
+{ : LBRACE
+f : ID
+( : LPAREN
+x : ID
+: : COLON
+Int : TYPE
+) : RPAREN
+: : COLON
+String : TYPE
+{ : LBRACE
+{ : LBRACE
+x : ID
+<- : ASSIGN
+x : ID
++ : PLUS
+1 : INT
+; : SEMI
+"Done!" : STRING
+; : SEMI
+} : RBRACE
+} : RBRACE
+; : SEMI
+} : RBRACE
+; : SEMI
+<EOF> : EOF
+"15-block.cl", line 1:1, Syntax error: mismatched input 'class' expecting <EOF>
+Compilation halted

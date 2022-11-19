@@ -1,0 +1,32 @@
+class : CLASS
+A : TYPE
+{ : LBRACE
+n : ID
+: : COLON
+Int : TYPE
+<- : ASSIGN
+0 : INT
+; : SEMI
+s : ID
+: : COLON
+String : TYPE
+<- : ASSIGN
+"abc" : STRING
+; : SEMI
+b : ID
+: : COLON
+Bool : TYPE
+<- : ASSIGN
+false : BOOL
+; : SEMI
+c : ID
+: : COLON
+Bool : TYPE
+<- : ASSIGN
+b : ID
+; : SEMI
+} : RBRACE
+; : SEMI
+<EOF> : EOF
+"05-literal-id.cl", line 1:1, Syntax error: mismatched input 'class' expecting <EOF>
+Compilation halted

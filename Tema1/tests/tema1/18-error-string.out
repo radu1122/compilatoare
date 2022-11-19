@@ -1,0 +1,26 @@
+class : CLASS
+A : TYPE
+{ : LBRACE
+long : ID
+: : COLON
+String : TYPE
+<- : ASSIGN
+String constant too long : ERROR
+; : SEMI
+null : ID
+: : COLON
+String : TYPE
+<- : ASSIGN
+String contains null character : ERROR
+; : SEMI
+unterminated : ID
+: : COLON
+String : TYPE
+<- : ASSIGN
+"where to?
+    ;
+    eof : String <- " : STRING
+nirvana : ID
+<EOF> : EOF
+"18-error-string.cl", line 1:1, Syntax error: mismatched input 'class' expecting <EOF>
+Compilation halted

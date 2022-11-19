@@ -1,0 +1,39 @@
+class : CLASS
+A : TYPE
+{ : LBRACE
+s1 : ID
+: : COLON
+String : TYPE
+<- : ASSIGN
+"ab\tcd" : STRING
+; : SEMI
+s2 : ID
+: : COLON
+String : TYPE
+<- : ASSIGN
+"ab\ncd" : STRING
+; : SEMI
+s3 : ID
+: : COLON
+String : TYPE
+<- : ASSIGN
+"ab\
+cd" : STRING
+; : SEMI
+s4 : ID
+: : COLON
+String : TYPE
+<- : ASSIGN
+"ab\\cd" : STRING
+; : SEMI
+s5 : ID
+: : COLON
+String : TYPE
+<- : ASSIGN
+"ab\zcd" : STRING
+; : SEMI
+} : RBRACE
+; : SEMI
+<EOF> : EOF
+"16-string-special-chars.cl", line 1:1, Syntax error: mismatched input 'class' expecting <EOF>
+Compilation halted

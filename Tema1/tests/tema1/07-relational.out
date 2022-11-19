@@ -1,0 +1,33 @@
+class : CLASS
+A : TYPE
+{ : LBRACE
+n : ID
+: : COLON
+Int : TYPE
+; : SEMI
+b : ID
+: : COLON
+Bool : TYPE
+<- : ASSIGN
+not : NOT
+2 : INT
+<= : LE
+n : ID
+; : SEMI
+c : ID
+: : COLON
+Bool : TYPE
+<- : ASSIGN
+2 : INT
+< : LT
+n : ID
++ : PLUS
+1 : INT
+= : EQUAL
+false : BOOL
+; : SEMI
+} : RBRACE
+; : SEMI
+<EOF> : EOF
+"07-relational.cl", line 1:1, Syntax error: mismatched input 'class' expecting <EOF>
+Compilation halted

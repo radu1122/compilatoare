@@ -1,0 +1,20 @@
+class : CLASS
+A : TYPE
+{ : LBRACE
+f : ID
+( : LPAREN
+) : RPAREN
+: : COLON
+Bool : TYPE
+{ : LBRACE
+not : NOT
+isvoid : ISVOID
+new : NEW
+A : TYPE
+} : RBRACE
+; : SEMI
+} : RBRACE
+; : SEMI
+<EOF> : EOF
+"09-new-isvoid.cl", line 1:1, Syntax error: mismatched input 'class' expecting <EOF>
+Compilation halted

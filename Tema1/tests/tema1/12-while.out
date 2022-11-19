@@ -1,0 +1,30 @@
+class : CLASS
+A : TYPE
+{ : LBRACE
+f : ID
+( : LPAREN
+x : ID
+: : COLON
+Int : TYPE
+) : RPAREN
+: : COLON
+Object : TYPE
+{ : LBRACE
+while : WHILE
+0 : INT
+< : LT
+x : ID
+loop : LOOP
+x : ID
+<- : ASSIGN
+x : ID
+- : MINUS
+1 : INT
+pool : POOL
+} : RBRACE
+; : SEMI
+} : RBRACE
+; : SEMI
+<EOF> : EOF
+"12-while.cl", line 1:1, Syntax error: mismatched input 'class' expecting <EOF>
+Compilation halted

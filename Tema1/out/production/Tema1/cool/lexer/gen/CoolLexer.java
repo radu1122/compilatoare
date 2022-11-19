@@ -1,4 +1,4 @@
-// Generated from /Users/radu.dum/Documents/facultate/compilatoare/Tema1/src/cool/lexer/CoolLexer.g4 by ANTLR 4.10.1
+// Generated from /Users/radu.dum/Documents/facultate/compilatoare/Tema1/out/production/Tema1/cool/lexer/CoolLexer.g4 by ANTLR 4.10.1
 
     package cool.lexer;	
 
