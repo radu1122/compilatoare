@@ -2,9 +2,6 @@ package cool.compiler;
 
 import org.antlr.v4.runtime.Token;
 
-public class Abstracts {
-}
-
 // this class will be the root for all expressions
 abstract class Expr extends ASTNode {
     Token token;
@@ -14,20 +11,11 @@ abstract class Expr extends ASTNode {
     }
 }
 
-abstract class Definition extends ASTNode {
-    Token token;
-
-    Definition(Token token) {
-        this.token = token;
-    }
-}
-
 abstract class Feature extends ASTNode {
     Token id;
     Token type;
-    Token token;
 
-    Feature(Token token, Token id, Token type) {
+    Feature(Token id, Token type) {
         this.id = id;
         this.type = type;
     }

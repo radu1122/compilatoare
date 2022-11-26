@@ -132,12 +132,12 @@ public class Compiler {
 
             @Override
             public ASTNode visitFuncDef(CoolParser.FuncDefContext ctx) {
-                return new FuncDef(ctx.start, ctx.fname, ctx.args.stream().map(formalArg -> (Formal)visitFormal(formalArg)).collect((Collectors.toList())), ctx.type, (Expr)visit(ctx.body));
+                return new FuncDef(ctx.fname, ctx.args.stream().map(formalArg -> (Formal)visitFormal(formalArg)).collect((Collectors.toList())), ctx.type, (Expr)visit(ctx.body));
             }
 
             @Override
             public ASTNode visitVarDef(CoolParser.VarDefContext ctx) {
-                return new VarDef(ctx.start, ctx.id, ctx.type, Objects.nonNull(ctx.init) ? (Expr)visit(ctx.init) : null);
+                return new VarDef(ctx.id, ctx.type, Objects.nonNull(ctx.init) ? (Expr)visit(ctx.init) : null);
             }
 
             @Override
@@ -283,6 +283,6 @@ public class Compiler {
         // build the auxiliary representation
         var ast = constructVisitor.visit(globalTree);
 
-        ast.accept((new PrintVisitor()).GetPrintVisitor());
+        ast.accept((new PrintVisitor()).getPrintVisitor());
     }
 }

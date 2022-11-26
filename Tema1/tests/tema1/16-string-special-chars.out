@@ -4,7 +4,7 @@ program
     attribute
       s1
       String
-      abtcd
+      ab	cd
     attribute
       s2
       String

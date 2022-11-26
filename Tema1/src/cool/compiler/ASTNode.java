@@ -2,7 +2,6 @@ package cool.compiler;
 
 import org.antlr.v4.runtime.Token;
 import java.util.*;
-import java.util.stream.Collectors;
 
 
 // this class will be the root of the AST
@@ -48,8 +47,8 @@ class FuncDef extends Feature {
     List<Formal> arguments;
     Expr body;
 
-    FuncDef(Token token, Token id, List<Formal> arguments, Token type, Expr body) {
-        super(token, id, type);
+    FuncDef(Token id, List<Formal> arguments, Token type, Expr body) {
+        super(id, type);
         this.arguments = arguments;
         this.body = body;
     }
@@ -63,8 +62,8 @@ class FuncDef extends Feature {
 class VarDef extends Feature {
     Expr assignment;
 
-    VarDef(Token token, Token id, Token type, Expr assignment) {
-        super(token, id, type);
+    VarDef(Token id, Token type, Expr assignment) {
+        super(id, type);
         this.assignment = assignment;
     }
 
@@ -124,7 +123,6 @@ class Dispatch extends Expr {
 }
 
 class IfElem extends Expr {
-    // Sunt necesare trei câmpuri pentru cele trei componente ale expresiei.
     Expr cond;
     Expr thenBranch;
     Expr elseBranch;
