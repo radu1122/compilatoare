@@ -1,31 +1,23 @@
-class : CLASS
-A : TYPE
-{ : LBRACE
-n : ID
-: : COLON
-Int : TYPE
-; : SEMI
-b : ID
-: : COLON
-Bool : TYPE
-<- : ASSIGN
-not : NOT
-2 : INT
-<= : LE
-n : ID
-; : SEMI
-c : ID
-: : COLON
-Bool : TYPE
-<- : ASSIGN
-2 : INT
-< : LT
-n : ID
-+ : PLUS
-1 : INT
-= : EQUAL
-false : BOOL
-; : SEMI
-} : RBRACE
-; : SEMI
-<EOF> : EOF
+program
+  class
+    A
+    attribute
+      n
+      Int
+    attribute
+      b
+      Bool
+      not
+        <=
+          2
+          n
+    attribute
+      c
+      Bool
+      =
+        <
+          2
+          +
+            n
+            1
+        false

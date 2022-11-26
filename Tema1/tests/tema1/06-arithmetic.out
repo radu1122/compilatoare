@@ -1,27 +1,18 @@
-class : CLASS
-A : TYPE
-{ : LBRACE
-n : ID
-: : COLON
-Int : TYPE
-<- : ASSIGN
-1 : INT
-+ : PLUS
-2 : INT
-* : MULT
-( : LPAREN
-3 : INT
-+ : PLUS
-4 : INT
-) : RPAREN
-/ : DIV
-( : LPAREN
-5 : INT
-- : MINUS
-~ : NEG
-6 : INT
-) : RPAREN
-; : SEMI
-} : RBRACE
-; : SEMI
-<EOF> : EOF
+program
+  class
+    A
+    attribute
+      n
+      Int
+      +
+        1
+        /
+          *
+            2
+            +
+              3
+              4
+          -
+            5
+            ~
+              6

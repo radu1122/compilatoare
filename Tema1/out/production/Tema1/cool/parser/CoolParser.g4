@@ -7,42 +7,45 @@ options {
 @header{
     package cool.parser;
 }
-program: (classes+=classDef)* EOF;
 
-formal: ID COLON TYPE;
+program
+    : ((modules+=classELem) SEMI)+  EOF
+    ;
 
-varDef: ID COLON TYPE (ASSIGN value=expr)?;
+classELem:
+    CLASS type=TYPE (INHERITS inheritance=TYPE)? LBRACE (features+=feature SEMI)* RBRACE;
 
-classContent
-	: ID COLON TYPE (ASSIGN value=expr)? SEMI																	# memberDef
-	| ID LPAREN (params+=formal (COMMA params+=formal)*)? RPAREN COLON TYPE LBRACE (body+=expr)* RBRACE SEMI	# methodDef
-	;
+feature: fname=ID LPAREN ((args+=formal COMMA)* args+=formal)? RPAREN COLON type=TYPE LBRACE body=expr RBRACE   # funcDef
+    | id=ID COLON type=TYPE (ASSIGN init=expr)?                                                                 # varDef
+    ;
 
-classDef: CLASS name=TYPE (INHERITS baseName=TYPE)? LBRACE (content+=classContent)* RBRACE SEMI;
+formal: name=ID COLON type=TYPE;
 
-caseBranch: ID COLON TYPE RARROW body=expr SEMI;
+letDefinition: name=ID COLON type=TYPE (ASSIGN initializator=expr)?;
 
 expr
-	: ID LPAREN (params+=expr (COMMA params+=expr)*)? RPAREN							# implicitDispatch
-    | caller=expr (AT TYPE)? DOT ID LPAREN (params+=expr (COMMA params+=expr)*)? RPAREN	# explicitDispatch
-	| IF cond=expr THEN thenBranch=expr ELSE elseBranch=expr FI     					# if
-	| WHILE cond=expr LOOP body=expr POOL												# while
-	| LET members+=varDef (COMMA members+=varDef)* IN body=expr							# let
-	| CASE var=expr OF (branches+=caseBranch)+ ESAC										# case
-	| ISVOID op=expr																	# isvoid
-	| NEW TYPE																			# new
-	| LPAREN op=expr RPAREN																# paren
-	| LBRACE (body+=expr SEMI)+ RBRACE													# block
-	| NEG expr																			# neg
-	| ID                                                            					# id
-	| INT                                                           					# int
-	| BOOL																				# bool
-	| STRING																			# string
-	| leftOp=expr MULT rightOp=expr														# mult
-	| leftOp=expr DIV rightOp=expr														# div
-	| leftOp=expr PLUS rightOp=expr														# plus
-	| leftOp=expr MINUS rightOp=expr													# minus
-	| leftOp=expr op=(EQUAL | LT | LE) rightOp=expr										# relOp
-	| ID ASSIGN expr																	# assign
-	| NOT expr																			# not
-	;
+    : target=expr (AT supertype=TYPE)? DOT method=ID LPAREN ((args+=expr COMMA)* args+=expr)? RPAREN            # classDispatch
+    | fname=ID LPAREN ((fargs+=expr COMMA)* fargs+=expr)? RPAREN                                                # dispatch
+    | NEG op=expr                                                                                               # negation
+    | lop=expr MULT rop=expr                                                                                    # mul
+    | lop=expr DIV rop=expr                                                                                     # div
+    | lop=expr PLUS rop=expr                                                                                    # add
+    | lop=expr MINUS rop=expr                                                                                   # sub
+    | lop=expr LE rop=expr                                                                                      # lessEq
+    | lop=expr LT rop=expr                                                                                      # lessThan
+    | lop=expr EQUAL rop=expr                                                                                   # equals
+    | IF cond=expr THEN thenBranch=expr ELSE elseBranch=expr FI                                                 # ifElem
+    | WHILE cond=expr LOOP body=expr POOL                                                                       # whileElem
+    | LBRACE (expressions+=expr SEMI)+ RBRACE                                                                   # nestedExpr
+    | LET definitions+=letDefinition (COMMA definitions+=letDefinition)* IN body=expr                           # letElem
+    | CASE target=expr OF (types+=formal RARROW branches+=expr SEMI)+ ESAC                                      # caseElem
+    | NEW type=TYPE                                                                                             # instantiation
+    | ISVOID op=expr                                                                                            # isVoidElem
+    | NOT op=expr                                                                                               # negationElem
+    | LPAREN body=expr RPAREN                                                                                   # parenthesis
+    | ID                                                                                                        # id
+    | INT                                                                                                       # int
+    | STRING                                                                                                    # str
+    | BOOL                                                                                                      # boolVal
+    | recipient=ID ASSIGN val=expr                                                                              # assignment
+    ;

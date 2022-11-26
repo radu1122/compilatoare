@@ -1,28 +1,18 @@
-class : CLASS
-A : TYPE
-{ : LBRACE
-f : ID
-( : LPAREN
-x : ID
-: : COLON
-Int : TYPE
-) : RPAREN
-: : COLON
-Object : TYPE
-{ : LBRACE
-while : WHILE
-0 : INT
-< : LT
-x : ID
-loop : LOOP
-x : ID
-<- : ASSIGN
-x : ID
-- : MINUS
-1 : INT
-pool : POOL
-} : RBRACE
-; : SEMI
-} : RBRACE
-; : SEMI
-<EOF> : EOF
+program
+  class
+    A
+    method
+      f
+      formal
+        x
+        Int
+      Object
+      while
+        <
+          0
+          x
+        <-
+          x
+          -
+            x
+            1

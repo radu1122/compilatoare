@@ -158,7 +158,12 @@ public class CoolLexer extends Lexer {
 					} else if (str.contains("\0")) {
 						raiseError("String contains null character");
 					} else {
-						setText(str);
+						setText(str.substring(1, str.length() - 1)
+						.replaceAll("\\\r\n", "\r\n")
+						.replaceAll("\\\n", "\n")
+						.replace("\\n", "\n")
+						.replaceAll("\\t", "\t")
+						.replaceAll("\\\\(?!\\\\)", ""));
 					}
 				
 			break;

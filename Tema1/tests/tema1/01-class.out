@@ -1,15 +1,6 @@
-ANTLR Tool version 4.10.1 used for code generation does not match the current runtime version 4.11.1
-class : CLASS
-A : TYPE
-{ : LBRACE
-} : RBRACE
-; : SEMI
-class : CLASS
-B : TYPE
-inherits : INHERITS
-A : TYPE
-{ : LBRACE
-} : RBRACE
-; : SEMI
-<EOF> : EOF
-ANTLR Tool version 4.10.1 used for code generation does not match the current runtime version 4.11.1
+program
+  class
+    A
+  class
+    B
+    A

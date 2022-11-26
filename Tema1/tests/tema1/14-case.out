@@ -1,39 +1,23 @@
-class : CLASS
-A : TYPE
-{ : LBRACE
-f : ID
-( : LPAREN
-x : ID
-: : COLON
-Object : TYPE
-) : RPAREN
-: : COLON
-String : TYPE
-{ : LBRACE
-case : CASE
-x : ID
-of : OF
-s : ID
-: : COLON
-String : TYPE
-=> : RARROW
-"String" : STRING
-; : SEMI
-i : ID
-: : COLON
-Int : TYPE
-=> : RARROW
-"Int" : STRING
-; : SEMI
-o : ID
-: : COLON
-Object : TYPE
-=> : RARROW
-"Oops" : STRING
-; : SEMI
-esac : ESAC
-} : RBRACE
-; : SEMI
-} : RBRACE
-; : SEMI
-<EOF> : EOF
+program
+  class
+    A
+    method
+      f
+      formal
+        x
+        Object
+      String
+      case
+        x
+        case branch
+          s
+          String
+          String
+        case branch
+          i
+          Int
+          Int
+        case branch
+          o
+          Object
+          Oops

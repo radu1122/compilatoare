@@ -48,16 +48,16 @@ public class Compiler {
                 tokenStream.setTokenSource(lexer);
 
 
-            // Test lexer only.
-            tokenStream.fill();
-            List<Token> tokens = tokenStream.getTokens();
-            tokens.stream().forEach(token -> {
-                var text = token.getText();
-                var name = CoolLexer.VOCABULARY.getSymbolicName(token.getType());
-
-                System.out.println(text + " : " + name);
-                //System.out.println(token);
-            });
+//            // Test lexer only.
+//            tokenStream.fill();
+//            List<Token> tokens = tokenStream.getTokens();
+//            tokens.stream().forEach(token -> {
+//                var text = token.getText();
+//                var name = CoolLexer.VOCABULARY.getSymbolicName(token.getType());
+//
+//                System.out.println(text + " : " + name);
+//                //System.out.println(token);
+//            });
 
 
             // Parser
@@ -264,11 +264,13 @@ public class Compiler {
 
             @Override
             public ASTNode visitStr(CoolParser.StrContext ctx) {
+
                 return new Str(ctx.STRING().getSymbol());
             }
 
             @Override
             public ASTNode visitBoolVal(CoolParser.BoolValContext ctx) {
+
                 return new Bool(ctx.BOOL().getSymbol());
             }
 
@@ -280,5 +282,7 @@ public class Compiler {
 
         // build the auxiliary representation
         var ast = constructVisitor.visit(globalTree);
+
+        ast.accept((new PrintVisitor()).GetPrintVisitor());
     }
 }

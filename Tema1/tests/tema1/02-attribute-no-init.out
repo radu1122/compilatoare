@@ -1,21 +1,12 @@
-class : CLASS
-A : TYPE
-{ : LBRACE
-x : ID
-: : COLON
-SELF_TYPE : TYPE
-; : SEMI
-} : RBRACE
-; : SEMI
-class : CLASS
-B : TYPE
-inherits : INHERITS
-A : TYPE
-{ : LBRACE
-y : ID
-: : COLON
-Int : TYPE
-; : SEMI
-} : RBRACE
-; : SEMI
-<EOF> : EOF
+program
+  class
+    A
+    attribute
+      x
+      SELF_TYPE
+  class
+    B
+    A
+    attribute
+      y
+      Int

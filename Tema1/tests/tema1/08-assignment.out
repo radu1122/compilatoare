@@ -1,44 +1,29 @@
-class : CLASS
-A : TYPE
-{ : LBRACE
-x : ID
-: : COLON
-Int : TYPE
-; : SEMI
-f : ID
-( : LPAREN
-y : ID
-: : COLON
-Int : TYPE
-) : RPAREN
-: : COLON
-Int : TYPE
-{ : LBRACE
-x : ID
-<- : ASSIGN
-y : ID
-} : RBRACE
-; : SEMI
-f : ID
-( : LPAREN
-y : ID
-: : COLON
-Int : TYPE
-, : COMMA
-z : ID
-: : COLON
-Int : TYPE
-) : RPAREN
-: : COLON
-Int : TYPE
-{ : LBRACE
-x : ID
-<- : ASSIGN
-y : ID
-<- : ASSIGN
-z : ID
-} : RBRACE
-; : SEMI
-} : RBRACE
-; : SEMI
-<EOF> : EOF
+program
+  class
+    A
+    attribute
+      x
+      Int
+    method
+      f
+      formal
+        y
+        Int
+      Int
+      <-
+        x
+        y
+    method
+      f
+      formal
+        y
+        Int
+      formal
+        z
+        Int
+      Int
+      <-
+        x
+        <-
+          y
+          z

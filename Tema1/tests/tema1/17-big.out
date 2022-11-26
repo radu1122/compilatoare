@@ -1,328 +1,200 @@
-class : CLASS
-List : TYPE
-inherits : INHERITS
-IO : TYPE
-{ : LBRACE
-elem : ID
-: : COLON
-Object : TYPE
-; : SEMI
-next : ID
-: : COLON
-List : TYPE
-; : SEMI
-init : ID
-( : LPAREN
-e : ID
-: : COLON
-Object : TYPE
-, : COMMA
-n : ID
-: : COLON
-List : TYPE
-) : RPAREN
-: : COLON
-List : TYPE
-{ : LBRACE
-{ : LBRACE
-elem : ID
-<- : ASSIGN
-e : ID
-; : SEMI
-next : ID
-<- : ASSIGN
-n : ID
-; : SEMI
-self : ID
-; : SEMI
-} : RBRACE
-} : RBRACE
-; : SEMI
-print : ID
-( : LPAREN
-) : RPAREN
-: : COLON
-IO : TYPE
-{ : LBRACE
-let : LET
-str : ID
-: : COLON
-String : TYPE
-<- : ASSIGN
-case : CASE
-elem : ID
-of : OF
-s : ID
-: : COLON
-String : TYPE
-=> : RARROW
-s : ID
-; : SEMI
-n : ID
-: : COLON
-Int : TYPE
-=> : RARROW
-new : NEW
-A2I : TYPE
-. : DOT
-i2a : ID
-( : LPAREN
-n : ID
-) : RPAREN
-; : SEMI
-o : ID
-: : COLON
-Object : TYPE
-=> : RARROW
-{ : LBRACE
-abort : ID
-( : LPAREN
-) : RPAREN
-; : SEMI
-"" : STRING
-; : SEMI
-} : RBRACE
-; : SEMI
-esac : ESAC
-in : IN
-{ : LBRACE
-out_string : ID
-( : LPAREN
-str : ID
-. : DOT
-concat : ID
-( : LPAREN
-" " : STRING
-) : RPAREN
-) : RPAREN
-; : SEMI
-if : IF
-( : LPAREN
-isvoid : ISVOID
-next : ID
-) : RPAREN
-then : THEN
-out_string : ID
-( : LPAREN
-"\n" : STRING
-) : RPAREN
-else : ELSE
-next : ID
-. : DOT
-print : ID
-( : LPAREN
-) : RPAREN
-fi : FI
-; : SEMI
-} : RBRACE
-} : RBRACE
-; : SEMI
-} : RBRACE
-; : SEMI
-class : CLASS
-Main : TYPE
-inherits : INHERITS
-IO : TYPE
-{ : LBRACE
-main : ID
-( : LPAREN
-) : RPAREN
-: : COLON
-Object : TYPE
-{ : LBRACE
-{ : LBRACE
-let : LET
-x : ID
-: : COLON
-Int : TYPE
-<- : ASSIGN
-0 : INT
-, : COMMA
-y : ID
-: : COLON
-String : TYPE
-<- : ASSIGN
-"!" : STRING
-, : COMMA
-z : ID
-: : COLON
-Int : TYPE
-<- : ASSIGN
-x : ID
-+ : PLUS
-2 : INT
-, : COMMA
-empty : ID
-: : COLON
-List : TYPE
-, : COMMA
-list : ID
-: : COLON
-List : TYPE
-<- : ASSIGN
-new : NEW
-List : TYPE
-. : DOT
-init : ID
-( : LPAREN
-x : ID
-, : COMMA
-new : NEW
-List : TYPE
-. : DOT
-init : ID
-( : LPAREN
-y : ID
-, : COMMA
-new : NEW
-List : TYPE
-. : DOT
-init : ID
-( : LPAREN
-z : ID
-, : COMMA
-empty : ID
-) : RPAREN
-) : RPAREN
-) : RPAREN
-in : IN
-list : ID
-. : DOT
-print : ID
-( : LPAREN
-) : RPAREN
-; : SEMI
-let : LET
-n : ID
-: : COLON
-Int : TYPE
-<- : ASSIGN
-out_string : ID
-( : LPAREN
-"Calculăm factorial pentru: " : STRING
-) : RPAREN
-. : DOT
-in_int : ID
-( : LPAREN
-) : RPAREN
-in : IN
-{ : LBRACE
-out_string : ID
-( : LPAREN
-"Factorial recursiv: " : STRING
-) : RPAREN
-. : DOT
-out_int : ID
-( : LPAREN
-fact_rec : ID
-( : LPAREN
-n : ID
-) : RPAREN
-) : RPAREN
-. : DOT
-out_string : ID
-( : LPAREN
-"\n" : STRING
-) : RPAREN
-; : SEMI
-out_string : ID
-( : LPAREN
-"Factorial iterativ: " : STRING
-) : RPAREN
-. : DOT
-out_int : ID
-( : LPAREN
-fact_iter : ID
-( : LPAREN
-n : ID
-) : RPAREN
-) : RPAREN
-. : DOT
-out_string : ID
-( : LPAREN
-"\n" : STRING
-) : RPAREN
-; : SEMI
-} : RBRACE
-; : SEMI
-} : RBRACE
-} : RBRACE
-; : SEMI
-fact_rec : ID
-( : LPAREN
-n : ID
-: : COLON
-Int : TYPE
-) : RPAREN
-: : COLON
-Int : TYPE
-{ : LBRACE
-if : IF
-n : ID
-= : EQUAL
-0 : INT
-then : THEN
-1 : INT
-else : ELSE
-n : ID
-* : MULT
-fact_rec : ID
-( : LPAREN
-n : ID
-- : MINUS
-1 : INT
-) : RPAREN
-fi : FI
-} : RBRACE
-; : SEMI
-fact_iter : ID
-( : LPAREN
-n : ID
-: : COLON
-Int : TYPE
-) : RPAREN
-: : COLON
-Int : TYPE
-{ : LBRACE
-let : LET
-res : ID
-: : COLON
-Int : TYPE
-<- : ASSIGN
-1 : INT
-in : IN
-{ : LBRACE
-while : WHILE
-( : LPAREN
-not : NOT
-( : LPAREN
-n : ID
-= : EQUAL
-0 : INT
-) : RPAREN
-) : RPAREN
-loop : LOOP
-{ : LBRACE
-res : ID
-<- : ASSIGN
-res : ID
-* : MULT
-n : ID
-; : SEMI
-n : ID
-<- : ASSIGN
-n : ID
-- : MINUS
-1 : INT
-; : SEMI
-} : RBRACE
-pool : POOL
-; : SEMI
-res : ID
-; : SEMI
-} : RBRACE
-} : RBRACE
-; : SEMI
-} : RBRACE
-; : SEMI
-<EOF> : EOF
+program
+  class
+    List
+    IO
+    attribute
+      elem
+      Object
+    attribute
+      next
+      List
+    method
+      init
+      formal
+        e
+        Object
+      formal
+        n
+        List
+      List
+      block
+        <-
+          elem
+          e
+        <-
+          next
+          n
+        self
+    method
+      print
+      IO
+      let
+        local
+          str
+          String
+          case
+            elem
+            case branch
+              s
+              String
+              s
+            case branch
+              n
+              Int
+              .
+                new
+                  A2I
+                i2a
+                n
+            case branch
+              o
+              Object
+              block
+                implicit dispatch
+                  abort
+                
+        block
+          implicit dispatch
+            out_string
+            .
+              str
+              concat
+               
+          if
+            isvoid
+              next
+            implicit dispatch
+              out_string
+              
+
+            .
+              next
+              print
+  class
+    Main
+    IO
+    method
+      main
+      Object
+      block
+        let
+          local
+            x
+            Int
+            0
+          local
+            y
+            String
+            !
+          local
+            z
+            Int
+            +
+              x
+              2
+          local
+            empty
+            List
+          local
+            list
+            List
+            .
+              new
+                List
+              init
+              x
+              .
+                new
+                  List
+                init
+                y
+                .
+                  new
+                    List
+                  init
+                  z
+                  empty
+          .
+            list
+            print
+        let
+          local
+            n
+            Int
+            .
+              implicit dispatch
+                out_string
+                Calculăm factorial pentru: 
+              in_int
+          block
+            .
+              .
+                implicit dispatch
+                  out_string
+                  Factorial recursiv: 
+                out_int
+                implicit dispatch
+                  fact_rec
+                  n
+              out_string
+              
+
+            .
+              .
+                implicit dispatch
+                  out_string
+                  Factorial iterativ: 
+                out_int
+                implicit dispatch
+                  fact_iter
+                  n
+              out_string
+              
+
+    method
+      fact_rec
+      formal
+        n
+        Int
+      Int
+      if
+        =
+          n
+          0
+        1
+        *
+          n
+          implicit dispatch
+            fact_rec
+            -
+              n
+              1
+    method
+      fact_iter
+      formal
+        n
+        Int
+      Int
+      let
+        local
+          res
+          Int
+          1
+        block
+          while
+            not
+              =
+                n
+                0
+            block
+              <-
+                res
+                *
+                  res
+                  n
+              <-
+                n
+                -
+                  n
+                  1
+          res

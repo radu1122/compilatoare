@@ -1,18 +1,10 @@
-class : CLASS
-A : TYPE
-{ : LBRACE
-f : ID
-( : LPAREN
-) : RPAREN
-: : COLON
-Bool : TYPE
-{ : LBRACE
-not : NOT
-isvoid : ISVOID
-new : NEW
-A : TYPE
-} : RBRACE
-; : SEMI
-} : RBRACE
-; : SEMI
-<EOF> : EOF
+program
+  class
+    A
+    method
+      f
+      Bool
+      not
+        isvoid
+          new
+            A

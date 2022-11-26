@@ -1,28 +1,17 @@
-class : CLASS
-A : TYPE
-{ : LBRACE
-f : ID
-( : LPAREN
-x : ID
-: : COLON
-Int : TYPE
-) : RPAREN
-: : COLON
-Int : TYPE
-{ : LBRACE
-if : IF
-x : ID
-<= : LE
-5 : INT
-then : THEN
-x : ID
-else : ELSE
-x : ID
-+ : PLUS
-1 : INT
-fi : FI
-} : RBRACE
-; : SEMI
-} : RBRACE
-; : SEMI
-<EOF> : EOF
+program
+  class
+    A
+    method
+      f
+      formal
+        x
+        Int
+      Int
+      if
+        <=
+          x
+          5
+        x
+        +
+          x
+          1
