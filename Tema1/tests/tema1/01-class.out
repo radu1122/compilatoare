@@ -13,5 +13,3 @@ A : TYPE
 ; : SEMI
 <EOF> : EOF
 ANTLR Tool version 4.10.1 used for code generation does not match the current runtime version 4.11.1
-"01-class.cl", line 1:1, Syntax error: mismatched input 'class' expecting <EOF>
-Compilation halted

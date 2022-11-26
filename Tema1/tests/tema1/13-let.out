@@ -33,5 +33,3 @@ x : ID
 } : RBRACE
 ; : SEMI
 <EOF> : EOF
-"13-let.cl", line 1:1, Syntax error: mismatched input 'class' expecting <EOF>
-Compilation halted

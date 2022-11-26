@@ -29,5 +29,3 @@ false : BOOL
 } : RBRACE
 ; : SEMI
 <EOF> : EOF
-"07-relational.cl", line 1:1, Syntax error: mismatched input 'class' expecting <EOF>
-Compilation halted

@@ -8,5 +8,6 @@ Int : TYPE
 ; : SEMI
 EOF in comment : ERROR
 <EOF> : EOF
-"19-error-comment.cl", line 1:1, Syntax error: mismatched input 'class' expecting <EOF>
+"19-error-comment.cl", line 2:5, Lexical error: Unmatched *)
+"19-error-comment.cl", line 6:5, Lexical error: EOF in comment
 Compilation halted

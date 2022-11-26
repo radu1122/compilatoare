@@ -28,5 +28,3 @@ b : ID
 } : RBRACE
 ; : SEMI
 <EOF> : EOF
-"05-literal-id.cl", line 1:1, Syntax error: mismatched input 'class' expecting <EOF>
-Compilation halted

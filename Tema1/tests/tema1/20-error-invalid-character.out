@@ -9,5 +9,5 @@ Invalid character: # : ERROR
 } : RBRACE
 ; : SEMI
 <EOF> : EOF
-"20-error-invalid-character.cl", line 1:1, Syntax error: mismatched input 'class' expecting <EOF>
+"20-error-invalid-character.cl", line 2:14, Lexical error: Invalid character: #
 Compilation halted

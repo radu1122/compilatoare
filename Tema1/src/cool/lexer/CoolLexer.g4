@@ -3,10 +3,10 @@ lexer grammar CoolLexer;
 tokens { ERROR } 
 
 @header{
-    package cool.lexer;	
+    package cool.lexer;
 }
 
-@members{    
+@members{
     private void raiseError(String msg) {
         setText(msg);
         setType(ERROR);
@@ -56,20 +56,20 @@ INT: DIGIT+;
 
 fragment NEW_LINE : '\r'? '\n';
 
-STRING: '"' (('\\'|'\t'|'\r\n'|'\r'|'\n'|'\\"') | ~('\\'|'\t'|'\r'|'\n'|'"'))* (
-        '"' {
-            String str = getText();
-            if (str.length() > 1024) {
-                raiseError("String constant too long");
-            } else if (str.contains("\0")) {
-                raiseError("String contains null character");
-            } else {
-                setText(str);
-            }
-        }
-        | EOF { raiseError("EOF in string constant"); }
-        | NEW_LINE { raiseError("Unterminated string constant"); }
-       );
+STRING: '"' ('\\"' | '\\' NEW_LINE | .)*? (
+	'"' {
+		String str = getText();
+		if (str.length() > 1024) {
+			raiseError("String constant too long");
+		} else if (str.contains("\0")) {
+			raiseError("String contains null character");
+		} else {
+			setText(str);
+		}
+	}
+	| EOF { raiseError("EOF in string constant"); }
+	| NEW_LINE { raiseError("Unterminated string constant"); }
+);
 
 SEMI: ';';
 COLON: ':';

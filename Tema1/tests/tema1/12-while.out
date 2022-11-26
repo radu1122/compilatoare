@@ -26,5 +26,3 @@ pool : POOL
 } : RBRACE
 ; : SEMI
 <EOF> : EOF
-"12-while.cl", line 1:1, Syntax error: mismatched input 'class' expecting <EOF>
-Compilation halted
